@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import pe.edu.upc.selenium.MyWebDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class ModificarServicioSteps {
 
     public static WebDriver webDriver;
@@ -23,8 +25,14 @@ public class ModificarServicioSteps {
     @And("Edita el servicio")
     public void editaElServicio() {
 
-        Select sltCategoria = new Select(webDriver.findElement(By.xpath("//*[@id=\"formulario\"]/div[4]/select")));
-        sltCategoria.selectByIndex(1);
+        try {
+            TimeUnit.SECONDS.sleep(5);
+            Select sltCategoria = new Select(webDriver.findElement(By.xpath("//*[@id=\"formulario\"]/div[4]/select")));
+            sltCategoria.selectByIndex(1);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
         webDriver.findElement(By.xpath("//*[@id=\"lbl1\"]")).clear();
         webDriver.findElement(By.xpath("//*[@id=\"lbl1\"]")).sendKeys("Mecanica");
