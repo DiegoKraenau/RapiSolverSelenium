@@ -33,7 +33,7 @@ public class RegistrarServicioSteps {
 	    @And("Hace click en Sing In")
 	    public void HackeClickEnSingIn() {
 
-	    	
+			webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	    	webDriver.findElement(By.xpath("/html/body/div/html/body/div[2]/div/div/div/div/form/button[1]")).click();
 	    }
 	    
